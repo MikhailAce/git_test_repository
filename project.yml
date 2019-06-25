@@ -12,6 +12,3 @@ project:
     - usr.json          # файл с описанием таблиц
   - scripts:             # подкаталог со скриптами/scripts
     - redmineMethods.js  # файл с функционалом Redmine
-    
-  includes:
-  - https://github.com/Mel1nik/RepHub/archive/dev.zip
