@@ -1,0 +1,2212 @@
+{
+  "version": "2018.10.22",
+	"settings": {
+		"mainMenu": {
+			"name": "mainMenu"
+		},
+		"gridView": {
+			"editing": "Popup"
+		},
+		"project": {
+			"title": "Re:Doc 2018"
+		},
+		"other": [
+			{
+				"name": "RedmineURL",
+				"value": "https://rm.mfc.ru"
+			},
+			{
+				"name": "RedmineToken",
+				"value": "bc0a7396d2a2d00fb5c8e7d738e3c12e54e4d4dd"
+			}
+		]
+	},
+  "security": {
+    "appGroup": {
+      "name": "ReDoc"
+    },
+    "groups": [
+      {
+        "name": "Administrators",
+        "description": "Администраторы",
+        "parentGroup": "ReDoc"
+      },
+      {
+        "name": "Users",
+        "description": "Пользователи",
+        "parentGroup": "ReDoc"
+      },
+      {
+        "name": "Guests",
+        "description": "Гости",
+        "parentGroup": "ReDoc"
+      }
+    ],
+    "users": [
+      {
+        "name": "Administrator",
+        "description": "Администратор",
+        "login": "admin",
+        "password": "2128506",
+        "email": "admin@mfc.ru",
+        "parentGroups": [ "Administrators" ]
+      },
+      {
+        "name": "efanova",
+        "description": "efanova",
+        "login": "efanova",
+        "password": "qwe1234",
+        "email": "",
+        "parentGroups": [ "Users" ]
+      },
+      {
+        "name": "guest",
+        "description": "Гостевая учетка",
+        "login": "guest",
+        "password": "guest",
+        "email": "",
+        "parentGroups": [ "Guests" ]
+      }
+    ],
+    "rules": [
+      {
+        "groups": [
+          "Administrators"
+        ],
+				"objects": [
+					"vox",
+					"employees",
+					"delo",
+					"tasks",
+					"BackgroundTaskAttempt",
+					"casesItem",
+					"tasksItem",
+					"backgroundTaskItem",
+					"voxItem",
+					"employeeItem",
+					"rdev___auth_users",
+					"deloMenu",
+					"rdev___sync_nodes",
+					"organization",
+					"reportsItem",
+					"redmineItem",
+					"issues",
+					"projects",
+					"users",
+					"redmineMenu_issues",
+					"redmineMenu_projects",
+					"redmineMenu_users",
+					"Menu_issues_priority",
+					"last_call"
+				],
+        "access": {
+          "read": "true",
+          "write": "true",
+          "create": "true"
+        }
+      },
+      {
+        "groups": [
+          "Users"
+        ],
+        "objects": [
+          "vox",
+          "employees",
+          "delo",
+          "casesItem",
+          "voxItem",
+          "employeeItem",
+          "rdev___auth_users",
+          "deloMenu"
+        ],
+        "access": {
+          "read": "true",
+          "write": "true",
+          "create": "true"
+        }
+      },
+      {
+        "groups": [
+           "Guests"
+        ],
+        "objects": [
+          "vox",
+          "employees",
+          "voxItem",
+          "employeeItem",
+          "rdev___auth_users"
+        ],
+        "access": {
+          "read": "true"
+        }
+      }
+    ]
+  },
+	"menus": [
+		{
+			"name": "mainMenu",
+			"title": "Главное меню",
+			"hint": "Главное меню",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "registers",
+					"title": "Re:Doc",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "casesItem",
+							"title": "Дела",
+							"typeMenuItem": "Table",
+							"object": "delo"
+						},
+						{
+							"name": "tasksItem",
+							"title": "Задачи",
+							"typeMenuItem": "Table",
+							"object": "tasks"
+						},
+						{
+							"name": "backgroundTaskItem",
+							"title": "Фоновые задачи",
+							"typeMenuItem": "Table",
+							"object": "backgroundtaskattempt"
+						},
+						{
+							"name": "serviceinfoItem",
+							"title": "Услуга",
+							"typeMenuItem": "Table",
+							"object": "serviceinfo"
+						},
+						{
+							"name": "statestructureItem",
+							"title": "Организация",
+							"typeMenuItem": "Table",
+							"object": "statestructure"
+						},
+						{
+							"name": "useridentityItem",
+							"title": "Описание контакта пользователя",
+							"typeMenuItem": "Table",
+							"object": "useridentity"
+						},
+						{
+							"name": "claimItem",
+							"title": "Утверждение",
+							"typeMenuItem": "Table",
+							"object": "claim"
+						},
+						{
+							"name": "userroleItem",
+							"title": "Описание роли контакта",
+							"typeMenuItem": "Table",
+							"object": "userrole"
+						},
+						{
+							"name": "certificateItem",
+							"title": "Описание сертификата контакта",
+							"typeMenuItem": "Table",
+							"object": "certificate"
+						}
+					]
+				},
+				{
+					"name": "employees",
+					"title": "Данные",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "employeeItem",
+							"title": "Сотрудники",
+							"typeMenuItem": "Table",
+							"object": "employees"
+						},
+						{
+							"name": "voxItem",
+							"title": "Воксы",
+							"typeMenuItem": "Table",
+							"object": "vox"
+						}
+					]
+				},
+				{
+					"name": "reportsItem",
+					"title": "Отчеты",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "reportItem",
+							"title": "Отчет по МФЦ",
+							"typeMenuItem": "Report",
+							"object": "mfcreport"
+						}
+					]
+				},
+				{
+					"name": "redmineItem",
+					"title": "Redmine",
+					"typeMenuItem": "Submenu",
+					"submenuItems": [
+						{
+							"name": "issuesItem",
+							"title": "Задачи",
+							"typeMenuItem": "Table",
+							"object": "issues"
+						},
+						{
+							"name": "usersItem",
+							"title": "Пользователи",
+							"typeMenuItem": "Table",
+							"object": "users"
+						},
+						{
+							"name": "projectsItem",
+							"title": "Проекты",
+							"typeMenuItem": "Table",
+							"object": "projects"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "deloMenu",
+			"title": "Дело",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "redocLinkItem",
+					"title": "Открыть дело в Re:Doc",
+					"object": "http://web.redoc.ru/WebInterfaceModule/File?fileId=${activeRecord.recid}",
+					"typeMenuItem": "Link"
+				}
+			]
+		},
+		{
+			"name": "redmineMenu_issues",
+			"title": "Действия с redmine",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "actionItem_get_issues",
+					"title": "Обновить список задач",
+					"typeMenuItem": "Method",
+					"object": "getissues"
+				},
+				{
+					"name": "issuesLinkItem",
+					"title": "Открыть задачу в Redmine",
+					"object": "https://rm.mfc.ru/issues/${activeRecord.reccode}",
+					"typeMenuItem": "Link"
+				}
+			]
+		},
+		{
+			"name": "Menu_issues_priority",
+			"title": "Действия с задачами",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "priority_up",
+					"title": "Поднять очередь",
+					"typeMenuItem": "Method",
+					"object": "priority_up"
+				},
+				{
+					"name": "priority_down",
+					"title": "Опустить очередь",
+					"typeMenuItem": "Method",
+					"object": "priority_down"
+				},
+				{
+					"name": "assign_to_priority",
+					"title": "Назначить очередь",
+					"typeMenuItem": "Method",
+					"object": "assign_to_priority"
+				}
+			]
+		},
+		{
+			"name": "redmineMenu_projects",
+			"title": "Действия с redmine",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "actionItem_get_projects",
+					"title": "Обновить список проектов",
+					"typeMenuItem": "Method",
+					"object": "getprojects"
+				}
+			]
+		},
+		{
+			"name": "redmineMenu_users",
+			"title": "Действия с redmine",
+			"typeMenuItem": "Submenu",
+			"submenuItems": [
+				{
+					"name": "usersLinkItem",
+					"title": "Открыть страницу пользователя в Redmine",
+					"object": "https://rm.mfc.ru/users/${activeRecord.reccode}",
+					"typeMenuItem": "Link"
+				}
+			]
+		}
+	],
+	"types": [
+		{
+			"name": "isBackgroundTask",
+			"type": "SysBoolean",
+			"displayName": "Фоновая задача"
+		},
+		{
+			"name": "relDelo",
+			"type": "SysString",
+			"displayName": "Дело"
+		},
+		{
+			"name": "nextTimeDate",
+			"type": "SysTimeDate",
+			"displayName": "Время следующего выполнения"
+		},
+		{
+			"name": "intervalSec",
+			"type": "SysInt",
+			"displayName": "Временной интервал (сек)"
+		},
+		{
+			"name": "fileNumber",
+			"type": "SysString",
+			"displayName": "Номер дела"
+		},
+		{
+			"name": "isArchived",
+			"type": "SysBoolean",
+			"displayName": "Архивировано"
+		},
+		{
+			"name": "templateId",
+			"type": "SysString",
+			"displayName": "Идентификатор шаблона"
+		},
+		{
+			"name": "serviceId",
+			"type": "SysString",
+			"displayName": "Идентификатор услуги"
+		},
+		{
+			"name": "componentId",
+			"type": "SysString",
+			"displayName": "Идентификатор компонента"
+		},
+		{
+			"name": "performerCredentialHash",
+			"type": "SysString",
+			"displayName": "Хэш контакта исполнителя"
+		},
+		{
+			"name": "endDate",
+			"type": "SysTimeDate",
+			"displayName": "Дата окончания"
+		},
+		{
+			"name": "status",
+			"type": "SysInt",
+			"displayName": "Статус"
+		},
+		{
+			"name": "certHash",
+			"type": "SysString",
+			"displayName": "Хэш сертификата"
+		},
+		{
+			"name": "relTask",
+			"type": "SysString",
+			"displayName": "Задача"
+		},
+		{
+			"name": "rdcTaskComponentCreatedAt",
+			"type": "SysTimeDate",
+			"displayName": "Время создания компонента-задачи в редоке"
+		},
+		{
+			"name": "rdcFileCreatedAt",
+			"type": "SysTimeDate",
+			"displayName": "Время создания дела в редоке"
+		},
+		{
+			"name": "rdcFileCreatedByUserCredential",
+			"type": "SysString",
+			"displayName": "Хеш удостоверения автора дела"
+		},
+		{
+			"name": "rdcFileModifiedAt",
+			"type": "SysTimeDate",
+			"displayName": "Время изменения дела в редоке"
+		},
+		{
+			"name": "backgroundAttempts",
+			"type": "SysInt",
+			"displayName": "Попытки фонового выполнения"
+		},
+		{
+			"name": "issuer",
+			"type": "SysString",
+			"displayName": "Издатель Утверждения"
+		},
+		{
+			"name": "subject",
+			"type": "SysString",
+			"displayName": "Хеш субъект утверждения"
+		},
+		{
+			"name": "claimtype",
+			"type": "SysString",
+			"displayName": "Тип утверждения"
+		},
+		{
+			"name": "claimvalue",
+			"type": "SysString",
+			"displayName": "Значение утверждения"
+		},
+		{
+			"name": "sign",
+			"type": "SysString",
+			"displayName": "Подпись Утверждения, выполненная сертификатом Issuer"
+		},
+		{
+			"name": "issuerthumbprint",
+			"type": "SysString",
+			"displayName": "Отпечаток сертификата издателя"
+		},
+		{
+			"name": "useridentityid",
+			"type": "SysGUID",
+			"displayName": "Контакт, который использует данные этого утверждения"
+		},
+		{
+			"name": "iscredential",
+			"type": "SysBoolean",
+			"displayName": "Утверждение относится к удостоверению"
+		},
+		{
+			"name": "isactual",
+			"type": "SysBoolean",
+			"displayName": "Утверждение актуально"
+		},
+		{
+			"name": "calcsubject",
+			"type": "SysString",
+			"displayName": "Посчитанный хеш субъект Утверждения"
+		},
+		{
+			"name": "hash",
+			"type": "SysString",
+			"displayName": "Хеш по основным данным утверждения"
+		},
+		{
+			"name": "isruntime",
+			"type": "SysBoolean",
+			"displayName": "Временное утверждение"
+		},
+		{
+			"name": "username",
+			"type": "SysString",
+			"displayName": "Полное имя"
+		},
+		{
+			"name": "firstname",
+			"type": "SysString",
+			"displayName": "Имя"
+		},
+		{
+			"name": "lastname",
+			"type": "SysString",
+			"displayName": "Фамилия"
+		},
+		{
+			"name": "patronymic",
+			"type": "SysString",
+			"displayName": "Отчество"
+		},
+		{
+			"name": "department",
+			"type": "SysString",
+			"displayName": "Идентификатор ведомства"
+		},
+		{
+			"name": "jobposition",
+			"type": "SysString",
+			"displayName": "Должность"
+		},
+		{
+			"name": "esiauserid",
+			"type": "SysString",
+			"displayName": "Идентификатор ЕСИА"
+		},
+		{
+			"name": "esiasnils",
+			"type": "SysString",
+			"displayName": "Снилс в ЕСИА"
+		},
+		{
+			"name": "esiauserdata",
+			"type": "SysString",
+			"displayName": "Токен ЕСИА"
+		},
+		{
+			"name": "domainname",
+			"type": "SysString",
+			"displayName": "Имя учетки при входе через домен"
+		},
+		{
+			"name": "blocked",
+			"type": "SysBoolean",
+			"displayName": "Заблокирован ли контакт"
+		},
+		{
+			"name": "retainpolicy",
+			"type": "SysInt",
+			"displayName": "Тип контакта"
+		},
+
+		{
+			"name": "rolename",
+			"type": "SysString",
+			"displayName": "Название роли"
+		},
+
+		{
+			"name": "value",
+			"type": "SysString",
+			"displayName": "Содержимое"
+		},
+		{
+			"name": "thumbprint",
+			"type": "SysString",
+			"displayName": "Отпечаток сертификата"
+		},
+		{
+			"name": "name",
+			"type": "SysString",
+			"displayName": "Имя"
+		},
+		{
+			"name": "organisation",
+			"type": "SysString",
+			"displayName": "Название организации"
+		},
+		{
+			"name": "claimsubject",
+			"type": "SysString",
+			"displayName": "Хеш субъекта из удостоверения"
+		},
+		{
+			"name": "deloid",
+			"type": "SysGUID",
+			"displayName": "ИД дела"
+		},
+		{
+			"name": "taskId",
+			"type": "SysGUID",
+			"displayName": "ИД выполняемой задачи"
+		},
+		{
+			"name": "reDocRecId",
+			"type": "SysString",
+			"displayName": "Идентификатор"
+		},
+		{
+			"name": "isComplexService",
+			"type": "SysBoolean",
+			"displayName": "Является ли услуга комплексной"
+		},
+		{
+			"name": "isComplexCustomer",
+			"type": "SysBoolean",
+			"displayName": "Услуга оказывается для комплексного заявителя"
+		},
+		{
+			"name": "useOneApplicationForComplexUser",
+			"type": "SysBoolean",
+			"displayName": "Заявление прикладывается одно для всех заявителей"
+		},
+		{
+			"name": "isMfcSupport",
+			"type": "SysBoolean",
+			"displayName": "Доступно ли получение услуги через МФЦ"
+		},
+		{
+			"name": "isOnline",
+			"type": "SysBoolean",
+			"displayName": "Услуга оказывается онлайн"
+		},
+		{
+			"name": "isPopular",
+			"type": "SysBoolean",
+			"displayName": "Услуга является популярной"
+		},
+		{
+			"name": "serviceShortName",
+			"type": "SysString",
+			"displayName": "Краткое название услуги"
+		},
+		{
+			"name": "serviceFullName",
+			"type": "SysString",
+			"displayName": "Полное название услуги"
+		},
+		{
+			"name": "serviceDescription",
+			"type": "SysString",
+			"displayName": "Описание услуги"
+		},
+		{
+			"name": "expertComment",
+			"type": "SysString",
+			"displayName": "Комментарий эксперта"
+		},
+		{
+			"name": "departmentId",
+			"type": "SysString",
+			"displayName": "Id ведомства, оказывающего услугу"
+		},
+		{
+			"name": "isExternalDepartmentList",
+			"type": "SysBoolean",
+			"displayName": "Признак загрузки списка ведомств из внешнего источника."
+		},
+		{
+			"name": "templateKey",
+			"type": "SysString",
+			"displayName": "RecId шаблона дела, связанного с данной услугой"
+		},
+		{
+			"name": "serviceDynamicFormRecId",
+			"type": "SysString",
+			"displayName": "Идентификатор динамической формы для РПГУ"
+		},
+		{
+			"name": "serviceTemplateRecId",
+			"type": "SysString",
+			"displayName": "Идентификатор шаблона дела, связанного с обработкой услуги РПГУ"
+		},
+		{
+			"name": "rpguServiceTemplateRecId",
+			"type": "SysString",
+			"displayName": "Идентификатор шаблона дела, связанного с подачей заявки по услуге с РПГУ"
+		},
+		{
+			"name": "filesNotFound",
+			"type": "SysString",
+			"displayName": "список идентификаторов документов, которые не удалось найти в репозитории документов"
+		},
+		{
+			"name": "versionEntity",
+			"type": "SysInt",
+			"displayName": "Текущая версия сущности"
+		},
+		{
+			"name": "isFgisDoService",
+			"type": "SysBoolean",
+			"displayName": "Позволяет привязывать услугу только к ведомтсвам, которым доступна подача жалоб"
+		},
+		{
+			"name": "epguLink",
+			"type": "SysString",
+			"displayName": "Ссылка на услугу, по которой ее можно поучить на портале ЕПГУ"
+		},
+		{
+			"name": "isMdmId",
+			"type": "SysString",
+			"displayName": "Идентификатор услуги в ИС МДМ"
+		},
+
+		{
+			"name": "shortName",
+			"type": "SysString",
+			"displayName": "Краткое наименование организации"
+		},
+		{
+			"name": "idOv",
+			"type": "SysString",
+			"displayName": "Идентификатор органа власти в реестре государственных и муниципальных услуг"
+		},
+		{
+			"name": "regionalIdOv",
+			"type": "SysString",
+			"displayName": "Региональный идентификатор органа власти в реестре государственных и муниципальных услуг"
+		},
+		{
+			"name": "oktmo",
+			"type": "SysString",
+			"displayName": "ОКТМО"
+		},
+		{
+			"name": "informationSystem",
+			"type": "SysString",
+			"displayName": "Наименование ИС"
+		},
+		{
+			"name": "mnemonic",
+			"type": "SysString",
+			"displayName": "Мнемоника"
+		},
+		{
+			"name": "phone",
+			"type": "SysString",
+			"displayName": "Телефон"
+		},
+		{
+			"name": "inn",
+			"type": "SysString",
+			"displayName": "ИНН"
+		},
+		{
+			"name": "regdate",
+			"type": "SysTimeDate",
+			"displayName": "Дата регистрации учреждения в налоговом органе"
+		},
+		{
+			"name": "kpp",
+			"type": "SysString",
+			"displayName": "КПП"
+		},
+		{
+			"name": "ogrn",
+			"type": "SysString",
+			"displayName": "ОГРН"
+		},
+		{
+			"name": "okato",
+			"type": "SysString",
+			"displayName": "ОКАТО"
+		},
+		{
+			"name": "okogu",
+			"type": "SysString",
+			"displayName": "ОКОГУ"
+		},
+		{
+			"name": "headName",
+			"type": "SysString",
+			"displayName": "Руководитель органа власти"
+		},
+		{
+			"name": "region",
+			"type": "SysString",
+			"displayName": "Регион"
+		},
+		{
+			"name": "address",
+			"type": "SysString",
+			"displayName": "Адрес"
+		},
+		{
+			"name": "workTime",
+			"type": "SysString",
+			"displayName": "Режим работы"
+		},
+		{
+			"name": "expeditionWorkTime",
+			"type": "SysString",
+			"displayName": "Режим работы экспедиции"
+		},
+		{
+			"name": "callCenterPhone",
+			"type": "SysString",
+			"displayName": "Телефон автоинформатора"
+		},
+		{
+			"name": "webResource",
+			"type": "SysString",
+			"displayName": "Сайт"
+		},
+		{
+			"name": "admLevel",
+			"type": "SysString",
+			"displayName": "Административный уровень"
+		},
+		{
+			"name": "stateType",
+			"type": "SysString",
+			"displayName": "Тип организации"
+		},
+		{
+			"name": "subOrdinationType",
+			"type": "SysString",
+			"displayName": "Тип подчинения"
+		},
+		{
+			"name": "rguParent",
+			"type": "SysString",
+			"displayName": "Вышестоящий орган власти"
+		},
+		{
+			"name": "characteristics",
+			"type": "SysString",
+			"displayName": "Характеристики"
+		},
+		{
+			"name": "email",
+			"type": "SysString",
+			"displayName": "Email"
+		},
+		{
+			"name": "departmentPfrNumber",
+			"type": "SysString",
+			"displayName": "Рег номер организации в ПФР"
+		},
+		{
+			"name": "isGisGmpOrg",
+			"type": "SysString",
+			"displayName": "ГИС ГМП"
+		},
+		{
+			"name": "gisRole",
+			"type": "SysString",
+			"displayName": "Роль организации в ГИС ГМП"
+		},
+		{
+			"name": "gisIdentificator",
+			"type": "SysString",
+			"displayName": "Идентификатор отправителя в системе ГИС ГМП"
+		},
+		{
+			"name": "bankName",
+			"type": "SysString",
+			"displayName": "Наименование банка, в котором открыт счёт"
+		},
+		{
+			"name": "bankNumber",
+			"type": "SysString",
+			"displayName": "Номер банковского счёта"
+		},
+		{
+			"name": "bankNumberCorr",
+			"type": "SysString",
+			"displayName": "Номер коррсчёта банка в ЦБ РФ"
+		},
+		{
+			"name": "bankBik",
+			"type": "SysString",
+			"displayName": "БИК банка получателя"
+		},
+		{
+			"name": "bankSwift",
+			"type": "SysString",
+			"displayName": "Код swift иностранного банка"
+		},
+		{
+			"name": "isMfc",
+			"type": "SysBoolean",
+			"displayName": "Организация является МФЦ"
+		},
+		{
+			"name": "isTosp",
+			"type": "SysBoolean",
+			"displayName": "Организация является ТОСПом (дополнительный офис МФЦ)"
+		},
+		{
+			"name": "parentMfcId",
+			"type": "SysString",
+			"displayName": "Идентификатор МФЦ, к которому привязан ТОСП"
+		},
+		{
+			"name": "thumbprintCertificate",
+			"type": "SysString",
+			"displayName": "Снимок сертификата, используемого для подписи ЭП-ОВ"
+		},
+		{
+			"name": "thumbprintSpCertificate",
+			"type": "SysString",
+			"displayName": "Снимок сертификата, используемого для подписи ЭП-СП"
+		},
+		{
+			"name": "currentPerformerThumbprint",
+			"type": "SysString",
+			"displayName": "Снимок сертификата пользователя, который является исполнителем задач по умолчанию для данной менмоники"
+		},
+		{
+			"name": "sirProcessKeysArea",
+			"type": "SysString",
+			"displayName": "Список процессов СИР"
+		},
+		{
+			"name": "useOktmoInRequest",
+			"type": "SysBoolean",
+			"displayName": "В запросах к шине указывать ОКТМО"
+		},
+		{
+			"name": "useSmev3Aggregator",
+			"type": "SysBoolean",
+			"displayName": "Для СМЭВ 3 данное ведомство должно использовать код РГУ агрегатора, указанного в настройках СМЭВ 3"
+		},
+		{
+			"name": "fgisDoAccessKey",
+			"type": "SysString",
+			"displayName": "Ключ доступа для получения жалоб от ФГИС ДО"
+		},
+		{
+			"name": "isCommercialStructure",
+			"type": "SysBoolean",
+			"displayName": "Организация является коммерческой"
+		},
+		{
+			"name": "employeeName",
+			"type": "SysString",
+			"displayName": "Ф.И.О"
+		},
+		{
+			"name": "userRel",
+			"type": "SysString",
+			"displayName": "Пользователь"
+		},
+		{
+			"name": "vacationDays",
+			"type": "SysInt",
+			"displayName": "Количество дней отпуска"
+		},
+		{
+			"name": "personnelNumber",
+			"type": "SysString",
+			"displayName": "Табельный номер"
+		},
+		{
+			"name": "employmentDate",
+			"type": "SysTimeDate",
+			"displayName": "Дата приема на работу"
+		},
+		{
+			"name": "employeeBirthDate",
+			"type": "SysTimeDate",
+			"displayName": "Дата рождения"
+		},
+		{
+			"name": "note",
+			"type": "SysString",
+			"displayName": "Примечание"
+		},
+		{
+			"name": "voxCount",
+			"type": "SysString",
+			"isCalculated": true,
+			"displayName": "Количество выданных воксов",
+			"formula": "select count(*) from vox v where v.employeerel = employees.recid and recstate = 1"
+		},
+		{
+			"name": "employeeRel",
+			"type": "SysString",
+			"displayName": "Сотрудник"
+		},
+		{
+			"name": "number",
+			"type": "SysInt",
+			"displayName": "Номер"
+		},
+		{
+			"name": "issueDate",
+			"type": "SysTimeDate",
+			"displayName": "Дата выдачи"
+		},
+		{
+			"name": "departmentnametype",
+			"type": "SysString",
+			"displayName": "Название подразделения"
+		},
+		{
+			"name": "servicefullnametype",
+			"type": "SysString",
+			"displayName": "Наименование подуслуги"
+		},
+		{
+			"name": "deloidtype",
+			"type": "SysGUID",
+			"displayName": "Идентификатор дела"
+		},
+		{
+			"name": "servicepassportnametype",
+			"type": "SysString",
+			"displayName": "Название услуги"
+		},
+		{
+			"name": "organizationvaluetype",
+			"type": "SysString",
+			"displayName": "Организация"
+		},
+		{
+			"name": "project_id",
+			"type": "SysString",
+			"displayName": "project_id"
+		},
+		{
+			"name": "weight",
+			"type": "SysDecimal",
+			"displayName": "Вес"
+		},
+		{
+			"name": "author",
+			"type": "SysString",
+			"displayName": "Автор"
+		},
+		{
+			"name": "updated",
+			"type": "SysString",
+			"displayName": "Updated"
+		},
+		{
+			"name": "login",
+			"type": "SysString",
+			"displayName": "Пользователь"
+		},
+		{
+			"name": "status_us",
+			"type": "SysString",
+			"displayName": "Статус"
+		},
+		{
+			"name": "type",
+			"type": "SysString",
+			"displayName": "Тип"
+		},
+		{
+			"name": "identity_url",
+			"type": "SysString",
+			"displayName": "URL адрес"
+		},
+		{
+			"name": "mail_notification",
+			"type": "SysString",
+			"displayName": "Почта"
+		},
+		{
+			"name": "homepage",
+			"type": "SysString",
+			"displayName": "Страница проекта"
+		},
+		{
+			"name": "is_public",
+			"type": "SysBoolean",
+			"displayName": "Общедоступный"
+		},
+		{
+			"name": "parent_id",
+			"type": "SysString",
+			"displayName": "parent_id"
+		},
+		{
+			"name": "identifier",
+			"type": "SysString",
+			"displayName": "Идентификатор"
+		},
+		{
+			"name": "status_project",
+			"type": "SysENUM",
+			"displayName": "Статус",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Открыт"
+				},
+				{
+					"id": 5,
+					"value": "Закрыт"
+				}
+			]
+		},
+		{
+			"name": "rgt",
+			"type": "SysString",
+			"displayName": "rgt"
+		},
+		{
+			"name": "inherit_members",
+			"type": "SysString",
+			"displayName": "inherit_members"
+		},
+		{
+			"name": "priority",
+			"type": "SysInt",
+			"displayName": "Очередность выполнения"
+		},
+		{
+			"name": "tracker_id",
+			"type": "SysENUM",
+			"displayName": "Трекер",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Ошибка"
+				},
+				{
+					"id": 2,
+					"value": "Улучшение"
+				},
+				{
+					"id": 3,
+					"value": "Поддержка"
+				}
+			]
+		},
+		{
+			"name": "priority_id",
+			"type": "SysENUM",
+			"displayName": "Приоритет",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Низкий"
+				},
+				{
+					"id": 2,
+					"value": "Нормальный"
+				},
+				{
+					"id": 3,
+					"value": "Высокий"
+				},
+				{
+					"id": 4,
+					"value": "Срочный"
+				},
+				{
+					"id": 5,
+					"value": "Немедленный"
+				}
+			]
+		},
+		{
+			"name": "status_issue",
+			"type": "SysENUM",
+			"displayName": "Статус",
+			"enum": [
+				{
+					"id": 1,
+					"value": "Новая"
+				},
+				{
+					"id": 2,
+					"value": "В работе"
+				},
+				{
+					"id": 3,
+					"value": "Решена"
+				},
+				{
+					"id": 4,
+					"value": "Возвращена"
+				},
+				{
+					"id": 5,
+					"value": "Закрыта"
+				},
+				{
+					"id": 6,
+					"value": "Отклонена"
+				}
+			]
+
+		},
+		{
+			"name": "due_date",
+			"type": "SysTimeDate",
+			"displayName": "Срок завершения"
+		},
+		{
+			"name": "lastCallGetissue",
+			"type": "SysString",
+			"displayName": "Дата вызова метода getissue"
+		},
+		{
+			"name": "assigned_to_id",
+			"type": "SysRelation",
+			"displayName": "Назначено",
+			"relation": {
+				"table": "users",
+				"displayField": "lastname"
+			}
+		},
+		{
+			"name": "project_name",
+			"type": "SysRelation",
+			"displayName": "Проект",
+			"relation": {
+				"table": "projects"
+			}
+		}
+	],
+	"tables": [
+		{
+			"name": "delo",
+			"displayName": "Дело",
+			"description": "",
+			"fields": [
+				{
+					"name": "filenumber",
+					"type": "fileNumber"
+				},
+				{
+					"name": "isarchived",
+					"type": "isArchived"
+				},
+				{
+					"name": "rdcfilecreatedat",
+					"type": "rdcFileCreatedAt"
+				},
+				{
+					"name": "rdcfilecreatedbyusercredential",
+					"type": "rdcFileCreatedByUserCredential"
+				},
+				{
+					"name": "rdcfilemodifiedat",
+					"type": "rdcFileModifiedAt"
+				},
+				{
+					"name": "templateid",
+					"type": "templateId"
+				},
+				{
+					"name": "serviceid",
+					"type": "serviceId"
+				}
+			],
+			"menus": [ "deloMenu" ]
+		},
+		{
+			"name": "test_table",
+			"displayName": "TEST",
+			"description": "",
+			"fields": [
+				{
+					"name": "filenumber",
+					"type": "fileNumber"
+				},
+				{
+					"name": "isarchived",
+					"type": "isArchived"
+				},
+				{
+					"name": "rdcfilecreatedat",
+					"type": "rdcFileCreatedAt"
+				},
+				{
+					"name": "rdcfilecreatedbyusercredential",
+					"type": "rdcFileCreatedByUserCredential"
+				},
+				{
+					"name": "rdcfilemodifiedat",
+					"type": "rdcFileModifiedAt"
+				},
+				{
+					"name": "templateid",
+					"type": "templateId"
+				},
+				{
+					"name": "serviceid",
+					"type": "serviceId"
+				}
+			],
+			"menus": [ "deloMenu" ]
+		},
+		{
+			"name": "tasks",
+			"displayName": "Задачи",
+			"description": "",
+			"fields": [
+				{
+					"name": "isbackground",
+					"type": "isBackgroundTask"
+				},
+				{
+					"name": "rdctaskcomponentcreatedat",
+					"type": "rdcTaskComponentCreatedAt"
+				},
+				{
+					"name": "timenextexecution",
+					"type": "nextTimeDate"
+				},
+				{
+					"name": "interval",
+					"type": "intervalSec"
+				},
+				{
+					"name": "componentid",
+					"type": "componentId"
+				},
+				{
+					"name": "performercredentialhash",
+					"type": "performerCredentialHash"
+				},
+				{
+					"name": "enddate",
+					"type": "endDate"
+				},
+				{
+					"name": "status",
+					"type": "status"
+				},
+				{
+					"name": "backgroundattempts",
+					"type": "backgroundAttempts"
+				}
+
+			]
+		},
+		{
+			"name": "PoolTask",
+			"displayName": "Пул задач",
+			"isViewTable": true,
+			"description": "View по таблицам дел и задач с некоторыми фильтрами для обращения к одата",
+			"fields": [
+				{
+					"name": "deloid",
+					"type": "relDelo"
+				},
+				{
+					"name": "IsBackground",
+					"type": "isBackgroundTask"
+				},
+				{
+					"name": "TimeNextExecution",
+					"type": "nextTimeDate"
+				},
+				{
+					"name": "Interval",
+					"type": "intervalSec"
+				},
+				{
+					"name": "ComponentId",
+					"type": "componentId"
+				},
+				{
+					"name": "PerformerCredentialHash",
+					"type": "performerCredentialHash"
+				},
+				{
+					"name": "EndDate",
+					"type": "endDate"
+				},
+				{
+					"name": "Status",
+					"type": "status"
+				},
+				{
+					"name": "delo_RecID",
+					"displayName": "Идентификатор дела",
+					"type": "SysGUID"
+				},
+				{
+					"name": "delo_RecName",
+					"displayName": "Наименование дела",
+					"type": "SysString"
+				},
+				{
+					"name": "delo_CreatedBy",
+					"displayName": "Кем создано дело",
+					"type": "SysString"
+				},
+				{
+					"name": "delo_UpdatedBy",
+					"displayName": "Кем обновлено дело",
+					"type": "SysString"
+				},
+				{
+					"name": "delo_RecCreated",
+					"displayName": "Время создания дела",
+					"type": "SysTimeDate"
+				},
+				{
+					"name": "delo_RecUpdated",
+					"displayName": "Время обновления дела",
+					"type": "SysTimeDate"
+				},
+				{
+					"name": "delo_RecDescription",
+					"displayName": "Описание дела",
+					"type": "SysString"
+				},
+				{
+					"name": "delo_FileNumber",
+					"type": "fileNumber"
+				},
+				{
+					"name": "delo_IsArchived",
+					"type": "isArchived"
+				},
+				{
+					"name": "delo_TemplateId",
+					"type": "templateId"
+				},
+				{
+					"name": "delo_ServiceId",
+					"type": "serviceId"
+				}
+
+			]
+		},
+		{
+			"name": "claim",
+			"displayName": "Утверждение",
+			"description": "",
+			"fields": [
+				{
+					"name": "issuer",
+					"type": "issuer"
+				},
+				{
+					"name": "subject",
+					"type": "subject"
+				},
+				{
+					"name": "claimtype",
+					"type": "claimtype"
+				},
+				{
+					"name": "claimvalue",
+					"type": "claimvalue"
+				},
+				{
+					"name": "sign",
+					"type": "sign"
+				},
+				{
+					"name": "issuerthumbprint",
+					"type": "issuerthumbprint"
+				},
+				{
+					"name": "useridentityid",
+					"type": "useridentityid"
+				},
+				{
+					"name": "iscredential",
+					"type": "iscredential"
+				},
+				{
+					"name": "isactual",
+					"type": "isactual"
+				},
+				{
+					"name": "hash",
+					"type": "hash"
+				},
+				{
+					"name": "calcsubject",
+					"type": "calcsubject"
+				},
+				{
+					"name": "isruntime",
+					"type": "isruntime"
+				}
+			]
+		},
+		{
+			"name": "useridentity",
+			"displayName": "Описание контакта пользователя",
+			"description": "",
+			"fields": [
+				{
+					"name": "username",
+					"type": "username"
+				},
+				{
+					"name": "phone",
+					"type": "phone"
+				},
+				{
+					"name": "address",
+					"type": "address"
+				},
+				{
+					"name": "email",
+					"type": "email"
+				},
+				{
+					"name": "firstname",
+					"type": "firstname"
+				},
+				{
+					"name": "lastname",
+					"type": "lastname"
+				},
+				{
+					"name": "patronymic",
+					"type": "patronymic"
+				},
+				{
+					"name": "department",
+					"type": "department"
+				},
+				{
+					"name": "jobposition",
+					"type": "jobposition"
+				},
+				{
+					"name": "esiauserid",
+					"type": "esiauserid"
+				},
+				{
+					"name": "esiasnils",
+					"type": "esiasnils"
+				},
+				{
+					"name": "esiauserdata",
+					"type": "esiauserdata"
+				},
+				{
+					"name": "domainname",
+					"type": "domainname"
+				},
+				{
+					"name": "blocked",
+					"type": "blocked"
+				},
+				{
+					"name": "retainpolicy",
+					"type": "retainpolicy"
+				}
+			]
+		},
+		{
+			"name": "userrole",
+			"displayName": "Описание роли контакта",
+			"description": "",
+			"fields": [
+				{
+					"name": "rolename",
+					"type": "rolename"
+				},
+				{
+					"name": "useridentityid",
+					"type": "useridentityid"
+				}
+			]
+		},
+		{
+			"name": "certificate",
+			"displayName": "Описание сертификата контакта",
+			"description": "",
+			"fields": [
+				{
+					"name": "value",
+					"type": "value"
+				},
+				{
+					"name": "thumbprint",
+					"type": "thumbprint"
+				},
+				{
+					"name": "email",
+					"type": "email"
+				},
+				{
+					"name": "organisation",
+					"type": "organisation"
+				},
+				{
+					"name": "phone",
+					"type": "phone"
+				},
+				{
+					"name": "claimsubject",
+					"type": "claimsubject"
+				},
+				{
+					"name": "useridentityid",
+					"type": "useridentityid"
+				}
+			]
+		},
+		{
+			"name": "BackgroundTaskAttempt",
+			"displayName": "Фоновые задачи",
+			"description": "",
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [ "RecCreated", "RecUpdated", "deloid", "ComponentId", "TaskId" ]
+				}
+			},
+			"fields": [
+				{
+					"name": "deloid",
+					"type": "deloid"
+				},
+				{
+					"name": "ComponentId",
+					"type": "componentId"
+				},
+				{
+					"name": "TaskId",
+					"type": "taskId"
+				}
+			]
+		},
+		{
+			"name": "serviceinfo",
+			"displayName": "Услуга",
+			"description": "",
+			"fieldGroups": {
+			},
+			"fields": [
+				{
+					"name": "ReDocRecId",
+					"type": "reDocRecId"
+				},
+				{
+					"name": "IsComplexService",
+					"type": "isComplexService"
+				},
+				{
+					"name": "IsComplexCustomer",
+					"type": "isComplexCustomer"
+				},
+				{
+					"name": "UseOneApplicationForComplexUser",
+					"type": "useOneApplicationForComplexUser"
+				},
+				{
+					"name": "IsMfcSupport",
+					"type": "isMfcSupport"
+				},
+				{
+					"name": "IsOnline",
+					"type": "isOnline"
+				},
+				{
+					"name": "IsPopular",
+					"type": "isPopular"
+				},
+				{
+					"name": "ServiceShortName",
+					"type": "serviceShortName"
+				},
+				{
+					"name": "ServiceFullName",
+					"type": "serviceFullName"
+				},
+				{
+					"name": "ServiceDescription",
+					"type": "serviceDescription"
+				},
+				{
+					"name": "ExpertComment",
+					"type": "expertComment"
+				},
+				{
+					"name": "DepartmentId",
+					"type": "departmentId"
+				},
+				{
+					"name": "IsExternalDepartmentList",
+					"type": "isExternalDepartmentList"
+				},
+				{
+					"name": "TemplateKey",
+					"type": "templateKey"
+				},
+				{
+					"name": "ServiceDynamicFormRecId",
+					"type": "serviceDynamicFormRecId"
+				},
+				{
+					"name": "ServiceTemplateRecId",
+					"type": "serviceTemplateRecId"
+				},
+				{
+					"name": "RpguServiceTemplateRecId",
+					"type": "rpguServiceTemplateRecId"
+				},
+				{
+					"name": "FilesNotFound",
+					"type": "filesNotFound"
+				},
+				{
+					"name": "VersionEntity",
+					"type": "versionEntity"
+				},
+				{
+					"name": "isFgisDoService",
+					"type": "isFgisDoService"
+				},
+				{
+					"name": "EpguLink",
+					"type": "epguLink"
+				},
+				{
+					"name": "IsMdmId",
+					"type": "isMdmId"
+				}
+			]
+		},
+		{
+			"name": "statestructure",
+			"displayName": "Организация",
+			"description": "",
+			"fieldGroups": {
+			},
+			"fields": [
+				{
+					"name": "ReDocRecId",
+					"type": "reDocRecId"
+				},
+				{
+					"name": "ShortName",
+					"type": "shortName"
+				},
+				{
+					"name": "IdOv",
+					"type": "idOv"
+				},
+				{
+					"name": "RegionalIdOv",
+					"type": "regionalIdOv"
+				},
+				{
+					"name": "Oktmo",
+					"type": "oktmo"
+				},
+				{
+					"name": "InformationSystem",
+					"type": "informationSystem"
+				},
+				{
+					"name": "Mnemonic",
+					"type": "mnemonic"
+				},
+				{
+					"name": "Phone",
+					"type": "phone"
+				},
+				{
+					"name": "Inn",
+					"type": "inn"
+				},
+				{
+					"name": "Regdate",
+					"type": "regdate"
+				},
+				{
+					"name": "Kpp",
+					"type": "kpp"
+				},
+				{
+					"name": "Ogrn",
+					"type": "ogrn"
+				},
+				{
+					"name": "Okato",
+					"type": "okato"
+				},
+				{
+					"name": "Okogu",
+					"type": "okogu"
+				},
+				{
+					"name": "HeadName",
+					"type": "headName"
+				},
+				{
+					"name": "Region",
+					"type": "region"
+				},
+				{
+					"name": "Address",
+					"type": "address"
+				},
+				{
+					"name": "WorkTime",
+					"type": "workTime"
+				},
+				{
+					"name": "ExpeditionWorkTime",
+					"type": "expeditionWorkTime"
+				},
+				{
+					"name": "CallCenterPhone",
+					"type": "callCenterPhone"
+				},
+				{
+					"name": "WebResource",
+					"type": "webResource"
+				},
+				{
+					"name": "AdmLevel",
+					"type": "admLevel"
+				},
+				{
+					"name": "StateType",
+					"type": "stateType"
+				},
+				{
+					"name": "SubOrdinationType",
+					"type": "subOrdinationType"
+				},
+				{
+					"name": "RguParent",
+					"type": "rguParent"
+				},
+				{
+					"name": "Characteristics",
+					"type": "characteristics"
+				},
+				{
+					"name": "Email",
+					"type": "email"
+				},
+				{
+					"name": "DepartmentPfrNumber",
+					"type": "departmentPfrNumber"
+				},
+				{
+					"name": "IsGisGmpOrg",
+					"type": "isGisGmpOrg"
+				},
+				{
+					"name": "GisRole",
+					"type": "gisRole"
+				},
+				{
+					"name": "GisIdentificator",
+					"type": "gisIdentificator"
+				},
+				{
+					"name": "BankName",
+					"type": "bankName"
+				},
+				{
+					"name": "BankNumber",
+					"type": "bankNumber"
+				},
+				{
+					"name": "BankNumberCorr",
+					"type": "bankNumberCorr"
+				},
+				{
+					"name": "BankBik",
+					"type": "bankBik"
+				},
+				{
+					"name": "BankSwift",
+					"type": "bankSwift"
+				},
+				{
+					"name": "IsMfc",
+					"type": "isMfc"
+				},
+				{
+					"name": "IsTosp",
+					"type": "isTosp"
+				},
+				{
+					"name": "ParentMfcId",
+					"type": "parentMfcId"
+				},
+				{
+					"name": "ThumbprintCertificate",
+					"type": "thumbprintCertificate"
+				},
+				{
+					"name": "ThumbprintSpCertificate",
+					"type": "thumbprintSpCertificate"
+				},
+				{
+					"name": "CurrentPerformerThumbprint",
+					"type": "currentPerformerThumbprint"
+				},
+				{
+					"name": "SirProcessKeysArea",
+					"type": "sirProcessKeysArea"
+				},
+				{
+					"name": "UseOktmoInRequest",
+					"type": "useOktmoInRequest"
+				},
+				{
+					"name": "UseSmev3Aggregator",
+					"type": "useSmev3Aggregator"
+				},
+				{
+					"name": "FgisDoAccessKey",
+					"type": "fgisDoAccessKey"
+				},
+				{
+					"name": "IsCommercialStructure",
+					"type": "isCommercialStructure"
+				}
+			]
+		},
+		{
+			"name": "employees",
+			"displayName": "Сотрудники",
+			"description": "",
+			"fields": [
+				{
+					"name": "employeename",
+					"type": "employeeName"
+				},
+				{
+					"name": "employeebirthdate",
+					"type": "employeeBirthDate"
+				},
+				{
+					"name": "personnelnumber",
+					"type": "personnelNumber"
+				},
+				{
+					"name": "vacationdays",
+					"type": "vacationDays"
+				},
+				{
+					"name": "employmentdate",
+					"type": "employmentDate"
+				},
+				{
+					"name": "note",
+					"type": "note"
+				}
+			]
+		},
+		{
+			"name": "vox",
+			"displayName": "Воксы",
+			"description": "",
+			"fields": [
+				{
+					"name": "number",
+					"type": "number"
+				},
+				{
+					"name": "issuedate",
+					"type": "issueDate"
+				},
+				{
+					"name": "note",
+					"type": "note"
+				}
+			]
+		},
+		{
+			"name": "templateapplication",
+			"displayName": "Шаблоны заявлений",
+			"description": "",
+			"fields": [
+				{
+					"name": "departmentname",
+					"type": "departmentnametype"
+				},
+				{
+					"name": "servicefullname",
+					"type": "servicefullnametype"
+				},
+				{
+					"name": "deloid",
+					"type": "deloidtype"
+				}
+			]
+		},
+		{
+			"name": "rgutargetinfo",
+			"displayName": "Информация о целях РГУ",
+			"description": "",
+			"fields": [
+				{
+					"name": "servicepassportname",
+					"type": "servicepassportnametype"
+				}
+			]
+		},
+		{
+			"name": "organization",
+			"displayName": "Информация об организации",
+			"description": "",
+			"fields": [
+				{
+					"name": "value",
+					"type": "organizationvaluetype"
+				}
+			]
+		},
+		{
+			"name": "issues",
+			"displayName": "Задачи",
+			"description": "Задачи",
+			"fields": [
+				{
+					"name": "tracker_id",
+					"type": "tracker_id"
+				},
+				{
+					"name": "updated",
+					"type": "updated"
+				},
+				{
+					"name": "project_name",
+					"type": "project_name"
+				},
+				{
+					"name": "assigned_to_id",
+					"type": "assigned_to_id"
+				},
+				{
+					"name": "priority",
+					"type": "priority"
+				},
+				{
+					"name": "priority_id",
+					"type": "priority_id"
+				},
+				{
+					"name": "project_id",
+					"type": "project_id"
+				},
+				{
+					"name": "author",
+					"type": "author"
+				},
+				{
+					"name": "weight",
+					"type": "weight"
+				},
+				{
+					"name": "status_issue",
+					"type": "status_issue"
+				},
+				{
+					"name": "due_date",
+					"type": "due_date"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [ "reccode", "recname", "recdescription", "project_name", "status_issue", "due_date", "author", "assigned_to_id", "priority_id", "priority", "tracker_id" ]
+				}
+			},
+			"menus": [
+				"redmineMenu_issues",
+				"Menu_issues_priority"
+			],
+			"methods": [
+				{
+					"name": "assign_to_priority",
+					"displayName": "Назначить очередь",
+					"fields": [
+						{
+							"name": "priority",
+							"type": "SysString",
+							"displayName": "Очередность выполнения"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "users",
+			"displayName": "Пользователи",
+			"description": "Пользователи",
+			"fields": [
+				{
+					"name": "login",
+					"type": "login"
+				},
+				{
+					"name": "updated",
+					"type": "updated"
+				},
+				{
+					"name": "firstname",
+					"type": "firstname"
+				},
+				{
+					"name": "lastname",
+					"type": "lastname"
+				},
+				{
+					"name": "status_us",
+					"type": "status_us"
+				},
+				{
+					"name": "type",
+					"type": "type"
+				},
+				{
+					"name": "identity_url",
+					"type": "identity_url"
+				},
+				{
+					"name": "mail_notification",
+					"type": "mail_notification"
+				}
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [ "reccode", "login" ]
+				},
+				"autoLookup": {
+					"displayName": "",
+					"fields": [ "firstname", "lastname" ]
+				}
+			},
+			"menus": [ "redmineMenu_users" ]
+		},
+		{
+			"name": "projects",
+			"displayName": "Проекты",
+			"description": "Проекты",
+			"fields": [
+				{
+					"name": "homepage",
+					"type": "homepage"
+				},
+				{
+					"name": "updated",
+					"type": "updated"
+				},
+				{
+					"name": "is_public",
+					"type": "is_public"
+				},
+				{
+					"name": "parent_id",
+					"type": "parent_id"
+				},
+				{
+					"name": "identifier",
+					"type": "identifier"
+				},
+				{
+					"name": "status_project",
+					"type": "status_project"
+				},
+				{
+					"name": "rgt",
+					"type": "rgt"
+				},
+				{
+					"name": "inherit_members",
+					"type": "inherit_members"
+				}
+
+			],
+			"fieldGroups": {
+				"autoList": {
+					"displayName": "",
+					"fields": [ "reccode", "recname", "recdescription", "homepage", "status_project", "identifier", "is_public" ]
+				}
+			},
+			"menus": [ "redmineMenu_projects" ]
+		},
+		{
+			"name": "last_call",
+			"displayName": "Дата вызова",
+			"description": "Хранение даты вызова функций",
+			"fields": [
+				{
+					"name": "lastCallGetissue",
+					"type": "lastCallGetissue"
+				}
+			]
+		}
+	]
+}
